@@ -7,10 +7,6 @@
           <strong>Username:</strong>
           {{ loggedInUser.username }}
         </p>
-        <p>
-          <strong>Email:</strong>
-          {{ loggedInUser.email }}
-        </p>
       </div>
     </div>
   </section>
@@ -21,7 +17,7 @@ import { mapGetters } from 'vuex'
 
 export default {
   computed: {
-    ...mapGetters(['loggedInUser'])
+    // ...mapGetters(['loggedInUser'])
   },
   middleware: 'auth',
 }

@@ -66,11 +66,10 @@ export default {
       try {
         await this.$auth.loginWith('local', {
           data: {
-            email: this.email,
+            username: this.username,
             password: this.password
           }
         })
-        console.log(response.data)
 
         this.$router.push('/')
       } catch (e) {
