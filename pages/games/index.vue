@@ -10,13 +10,6 @@
           <div v-for="game in games" :key="game.id">
             <div>{{ game.id }}</div>
 
-<!--            <v-data-table-->
-<!--              :headers="headers"-->
-<!--              :items="games"-->
-<!--              item-key="name"-->
-<!--              class="elevation-1"-->
-<!--            >-->
-<!--            </v-data-table>-->
           </div>
         </div>
       </div>
@@ -32,14 +25,6 @@ export default {
   components: {
     Notification,
   },
-
-  // async asyncData() {
-  //   const { data } = await axios.get('https://api.8668live.com/api/v1.0/rooms/list_game')
-  //   return {
-  //     games : data
-  //   }
-  // },
-
 
   async asyncData({ $axios }) {
 
