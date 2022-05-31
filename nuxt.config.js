@@ -27,7 +27,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/element-ui'
+    {src: '@/plugins/element-ui', ssr: false},
+    {src: '@/plugins/vue-data-table', ssr: false}
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -48,8 +49,13 @@ export default {
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: 'https://api.8668live.com/api/v1.0',
-    proxyHeaders: false,
-    credentials: false
+    timeout: 500,
+    Headers: {
+      common: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    }
   },
 
   auth: {
@@ -57,7 +63,7 @@ export default {
       local: {
         endpoints: {
           login: { url: 'auth/login', method: 'post', propertyName: 'data.token' },
-          user: { url: 'users/me', method: 'get', propertyName: 'data' },
+          user: { url: 'users/me', method: 'get', propertyName: 'data.user' },
           logout: false
         }
       }
